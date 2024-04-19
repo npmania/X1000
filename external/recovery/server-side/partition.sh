@@ -1,2 +1,2 @@
 #!/bin/sh
-python -m otapackage/customer/partition $@
+python -m otapackage.customer.partition $@

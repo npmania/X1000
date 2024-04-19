@@ -1,2 +1,2 @@
 #!/bin/sh
-python -m otapackage/customer/customize $@
+python -m otapackage.customer.customize $@

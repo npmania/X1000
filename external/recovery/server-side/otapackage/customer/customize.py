@@ -72,7 +72,7 @@ class CustomizeImage(object):
         args = parser.parse_args()
 
         if args.mediumtype not in cls.devtypes:
-            print '%s: error: medium type %s is not one in %s' %(__file__, args.mediumtype, tuple(cls.devtypes))
+            print('%s: error: medium type %s is not one in %s' %(__file__, args.mediumtype, tuple(cls.devtypes)))
             os._exit(0)
 
         cls.storagemedium = args.mediumtype
@@ -80,13 +80,13 @@ class CustomizeImage(object):
             cls.imgcnt = args.imgcnt
 
         for i in range(1, int(args.imgcnt)+1):
-            imgname = raw_input('image%d name: ' % i)
-            imgtype = raw_input(
+            imgname = input('image%d name: ' % i)
+            imgtype = input(
                 'image%d type [must be one in %s]: ' % (i, cls.types))
             assert imgtype in cls.types, "image type '%s' is not in %s" % (
                 imgtype, cls.types)
-            imgoffset = input('image%d offset [hexadecimal is better]: ' % (i))
-            updatemode = raw_input(
+            imgoffset = eval(input('image%d offset [hexadecimal is better]: ' % (i)))
+            updatemode = input(
                 'image%d updatemode [must be one in %s]: ' % (
                     i, cls.updatemodes))
             assert updatemode in cls.updatemodes, '''image updatemode '%s' 

@@ -26,7 +26,7 @@ class DeviceConfig(object):
     assert (len(devtypes) == len(devsizes)) and  (len(devtypes) == len(devpartitions)) \
                 ,"list length of devtypes, devsizes and devpartitions must equivalent"
 
-    devs = zip(devtypes, devsizes, devpartitions)
+    devs = list(zip(devtypes, devsizes, devpartitions))
 
     local = locals()
 
@@ -79,7 +79,7 @@ class DeviceConfig(object):
         parser.add_argument('mediumtype', help=help)
         args = parser.parse_args()
         if args.mediumtype not in cls.devtypes:
-            print '%s: error: medium type %s is not one in %s' %(__file__, args.mediumtype, tuple(cls.devtypes))
+            print('%s: error: medium type %s is not one in %s' %(__file__, args.mediumtype, tuple(cls.devtypes)))
             os._exit(0)
         cls.medium_current = args.mediumtype
         return args

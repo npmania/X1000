@@ -79,7 +79,7 @@ class Maker(object):
             os._exit(1)
 
         for customer_type in self.customer_types:
-            print "pack start on \'%s\'" %(customer_type)
+            print("pack start on \'%s\'" %(customer_type))
             config.Config.set_customer_files_suffix(customer_type)
             self.dev = dev.Device.get_object_from_file()
             if not self.dev:

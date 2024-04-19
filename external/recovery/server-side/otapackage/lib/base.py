@@ -6,7 +6,7 @@ def enum_f1(**enums):
 
 
 def enum_f2(*sequential, **named):
-    enums = dict(zip(sequential, range(len(sequential))), **named)
+    enums = dict(list(zip(sequential, list(range(len(sequential))))), **named)
     return type('Enum', (), enums)
 
 
@@ -46,7 +46,7 @@ def human2bytes(sv):
 
     if not var or var.isdigit():
         return -1
-    for k, v in suffixes.items():
+    for k, v in list(suffixes.items()):
         for i in range(0, len(v)):
             if var.find(v[i]) != -1:
                 var = var.replace(v[i], "")
@@ -59,7 +59,7 @@ def human2bytes(sv):
 def bytes2human(n):
     suffixes = {1024: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']}
     prefix = {}
-    for k, v in suffixes.items():
+    for k, v in list(suffixes.items()):
         for i, s in enumerate(suffixes[k]):
             prefix[s] = k**(i+1)
         for s in reversed(suffixes[k]):

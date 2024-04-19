@@ -193,7 +193,7 @@ class Image(object):
             imgtype = ini_parser.get(section_name, 'type')
             offset = ini_parser.get(section_name, 'offset')
             updatemode = ini_parser.get(section_name, 'updatemode')
-            if base.is_one_empty(zip(name, imgtype, offset, updatemode)):
+            if base.is_one_empty(list(zip(name, imgtype, offset, updatemode))):
                 return None
             imgsize = cls.get_image_size(name)
             if imgsize == 0:
