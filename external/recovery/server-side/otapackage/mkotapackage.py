@@ -120,8 +120,7 @@ class Maker(object):
 
         path = "%s/%s" %(config.Config.get_outputdir_path(),
                     config.output_global_config_name)
-        target = open(path, 'w')
-        tree.write(target, encoding=config.xml_encoding,
+        tree.write(path, encoding=config.xml_encoding,
                    xml_declaration=config.xml_declaration)
 
     def pack(self):

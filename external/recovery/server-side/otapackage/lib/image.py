@@ -286,7 +286,6 @@ class Image(object):
         root.extend(root_element_list)
         tree = et.ElementTree(root)
         path = default_config
-        target = open(path, 'w')
-        tree.write(target, encoding=config.xml_encoding,
+        tree.write(path, encoding=config.xml_encoding,
                    xml_declaration=config.xml_declaration)
         return True

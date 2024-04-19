@@ -35,6 +35,8 @@ def split(fromfile, todir, chunksize, func):
     partnum = 1
     f = open(fromfile, 'rb')
     while 1:
+        if type(chunksize) == float and chunksize.is_integer():
+            chunksize = int(chunksize)
         chunk = f.read(chunksize)
         if not chunk:
             break
